@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class HungerBar : MonoBehaviour
 {
     public Slider slider;
-    private float hunger = 100;
+    private float hunger;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("DecreaseHunger", 1, 0.1f);
+        hunger = 100;
+        InvokeRepeating("DecreaseHunger", 3, 0.1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            IncreaseHunger();
-        }
+
     }
 
     private void DecreaseHunger()
@@ -27,7 +25,7 @@ public class NewBehaviourScript : MonoBehaviour
         hunger -= 0.5f;
         slider.value = hunger;
     }
-    private void IncreaseHunger()
+    public void IncreaseHunger()
     {
         hunger += 20;
         slider.value = hunger;
